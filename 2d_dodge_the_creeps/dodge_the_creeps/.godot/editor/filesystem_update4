@@ -1,2 +1,4 @@
 res://Main.tscn
-res://powerup.tscn
+res://Main.gd
+res://Player.gd
+res://powerup.gd
