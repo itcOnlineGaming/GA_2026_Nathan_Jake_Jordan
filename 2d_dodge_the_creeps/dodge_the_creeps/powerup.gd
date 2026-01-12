@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var powerupSpawned: bool = false;
 var powerupActive: bool = false;
+var powerupTime: int = 0;
 
 func _ready() -> void:
 	remove_powerup()
@@ -17,5 +18,8 @@ func remove_powerup() -> void:
 func get_powerup_spawned_status() -> bool:
 	return powerupSpawned;
 
-func get_powerup_active_status() -> bool:
-	return powerupActive;
+#func update_timer() -> bool:
+	#powerupTime += 1;
+
+#func get_powerup_active_status() -> bool:
+#	return powerupActive;

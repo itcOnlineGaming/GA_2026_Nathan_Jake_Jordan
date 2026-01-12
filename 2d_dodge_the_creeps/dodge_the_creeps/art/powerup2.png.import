@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsi0ltiqsj0fh"
-path="res://.godot/imported/eatmyjorts.png-4cbe026ce62a402c34840fa5f71b4992.ctex"
+uid="uid://c6lkcc0xc2138"
+path="res://.godot/imported/powerup2.png-574e2a5d810f0b953e18e935408465ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/eatmyjorts.png"
-dest_files=["res://.godot/imported/eatmyjorts.png-4cbe026ce62a402c34840fa5f71b4992.ctex"]
+source_file="res://art/powerup2.png"
+dest_files=["res://.godot/imported/powerup2.png-574e2a5d810f0b953e18e935408465ec.ctex"]
 
 [params]
 

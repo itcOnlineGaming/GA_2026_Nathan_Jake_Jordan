@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8aw7bjmip7k2"
-path="res://.godot/imported/eatmyshorts.png-f3494082cefde6e3b6e2480a6276829a.ctex"
+uid="uid://e2h8uofr425g"
+path="res://.godot/imported/powerup1.png-7535c268dcfdb7f9e639aa8a101f4ff9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/eatmyshorts.png"
-dest_files=["res://.godot/imported/eatmyshorts.png-f3494082cefde6e3b6e2480a6276829a.ctex"]
+source_file="res://art/powerup1.png"
+dest_files=["res://.godot/imported/powerup1.png-7535c268dcfdb7f9e639aa8a101f4ff9.ctex"]
 
 [params]
 

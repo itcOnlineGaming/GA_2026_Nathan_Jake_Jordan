@@ -2,6 +2,7 @@ extends Node
 
 @export var mob_scene: PackedScene
 @export var powerup: RigidBody2D
+@export var player: Area2D
 var score
 
 #Var to print
@@ -21,6 +22,7 @@ func get_score_timer():
 	
 func change_var_on_conditions():
 	powerup_spawn_timer = timer_picked;
+
 
 func game_over():
 	$ScoreTimer.stop()
@@ -54,6 +56,11 @@ func write_statistics():
 		file.store_csv_line([run_id, "B", "Survival Time", time_count, "Powerup Timer rate", powerup_spawn_timer])
 	
 	file.close()
+
+
+func _process(_delta):
+	player_collecting_powerup()
+
 
 func new_game():
 	get_tree().call_group(&"mobs", &"queue_free")
@@ -90,7 +97,12 @@ func _on_MobTimer_timeout():
 	mob.rotation = direction
 
 	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	var minSpeed = 150.0;
+	var maxSpeed = 250.0;
+	if (powerup.powerupActive):
+		minSpeed -= 50;
+		maxSpeed -= 50;
+	var velocity = Vector2(randf_range(minSpeed, maxSpeed), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 
 	# Spawn the mob by adding it to the Main scene.
@@ -100,11 +112,21 @@ func _on_MobTimer_timeout():
 func _on_ScoreTimer_timeout():
 	score += 1
 	$HUD.update_score(score)
-	if (score % timer_picked == 0 && score != 0 && !powerup.powerupSpawned):
-		var powerupPos = Vector2(100,100); # Needs to be random
+	if (powerup.powerupSpawned):
+		powerup.powerupTime += 1;
+		if (powerup.powerupTime == 6):
+			powerup.powerupSpawned = false;
+	elif (score % 5 == 0 && score != 0 && !powerup.powerupSpawned):
+		var powerupPos = Vector2(240,360); 
 		powerup.add_powerup(powerupPos);
 
 
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
+
+func player_collecting_powerup() -> void:
+	if (player.position.x >= powerup.position.x && player.position.x <= powerup.position.x + 32 &&
+		player.position.y >= powerup.position.y && player.position.y <= powerup.position.y + 32):
+		powerup.remove_powerup()
+		powerup.powerupActive = true;

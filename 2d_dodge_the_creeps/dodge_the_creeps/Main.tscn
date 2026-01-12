@@ -14,10 +14,11 @@ _data = {
 }
 point_count = 5
 
-[node name="Main" type="Node" node_paths=PackedStringArray("powerup")]
+[node name="Main" type="Node" node_paths=PackedStringArray("powerup", "player")]
 script = ExtResource("1")
 mob_scene = ExtResource("2")
 powerup = NodePath("Powerup")
+player = NodePath("Player")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
