@@ -116,7 +116,7 @@ func _on_ScoreTimer_timeout():
 		powerup.powerupTime += 1;
 		if (powerup.powerupTime == 6):
 			powerup.powerupSpawned = false;
-	elif (score % 5 == 0 && score != 0 && !powerup.powerupSpawned):
+	elif (score % timer_picked == 0 && score != 0 && !powerup.powerupSpawned):
 		var powerupPos = Vector2(240,360); 
 		powerup.add_powerup(powerupPos);
 
