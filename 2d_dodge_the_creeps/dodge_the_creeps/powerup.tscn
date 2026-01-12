@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://caurikeajxs6f"]
+
+[ext_resource type="Script" uid="uid://b2mvtpcce23ij" path="res://powerup.gd" id="1_wh0le"]
+[ext_resource type="Texture2D" uid="uid://dsi0ltiqsj0fh" path="res://art/eatmyjorts.png" id="2_6cuax"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_to7bl"]
+radius = 18.110771
+
+[node name="Powerup" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_wh0le")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6cuax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_to7bl")
